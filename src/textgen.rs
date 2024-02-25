@@ -239,7 +239,7 @@ impl<T: Seek + io::Read> WordSelector for RawWordSelector<T> {
 
         let mut word = "-".to_string();
 
-        while word.len() < 2 || word.len() > 8 || !word.chars().all(|c| c.is_ascii_alphabetic()) {
+        while word.len() < 2 || !word.chars().all(|c| c.is_ascii_alphabetic()) {
             word = self.new_word_raw(&mut rng)?;
         }
 
